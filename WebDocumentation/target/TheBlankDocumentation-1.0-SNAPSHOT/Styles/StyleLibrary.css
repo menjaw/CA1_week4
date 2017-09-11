@@ -1,0 +1,92 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-03-2017, 22:01:44
+    Author     : Menja
+*/
+.bottomMargin15px{
+    margin-bottom: 15px;
+}
+
+.btnSize{
+    width: 175px;
+    height: 55px;
+}
+
+.centerText{
+    text-align: center;
+}
+
+.darkGreyBorder{
+    border: 2px darkgray solid;
+    height: auto;
+    width: auto;
+}
+
+.fixedBottom {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.fontSize10px{
+    font-size: 15px;
+}
+
+.fontSize15px{
+    font-size: 15px;
+}
+
+.fontSize20px{
+    font-size: 20px;
+}
+
+.fontSize25px{
+    font-size: 25px;
+}
+
+.fontSize30px{
+    font-size: 30px;
+}
+
+img{
+    margin: 15px;
+}
+
+.margin0px{
+    margin: 0;
+}
+
+.margin5px{
+    margin: 5px;
+}
+
+.margin10px{
+    margin: 10px;
+}
+
+.margin15px{
+    margin: 15px;
+}
+
+.marginBottom5px{
+    margin-bottom: 5px;
+}
+.marginBottom15px{
+    margin-bottom: 15px;
+}
+.marginBottom20px{
+    margin-bottom: 20px;
+}
+.marginBottom25px{
+    margin-bottom: 25px;
+}
+
+.marginTop25px{
+    margin-top: 25px;
+}
+
+
