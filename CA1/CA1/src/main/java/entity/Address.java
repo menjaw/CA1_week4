@@ -1,20 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-/**
- *
- * @author Menja
- */
+
 @Entity
 public class Address implements Serializable {
     //Variables
@@ -24,6 +20,12 @@ public class Address implements Serializable {
     private Integer id;
     private String street;
     private String additionalInfo;
+    
+    @OneToMany(mappedBy = "address")
+    private List<InfoEntity> InfoEntity;
+    
+    @ManyToOne
+    private CityInfo cityinfo;
     
     //Constructors
 
@@ -39,12 +41,42 @@ public class Address implements Serializable {
         this.id = id;
     }
 
-    
+    public String getStreet() {
+        return street;
+    }
 
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
+    }
+
+    public List<InfoEntity> getInfoEntity() {
+        return InfoEntity;
+    }
+
+    public void setInfoEntity(List<InfoEntity> InfoEntity) {
+        this.InfoEntity = InfoEntity;
+    }
+
+    public CityInfo getCityinfo() {
+        return cityinfo;
+    }
+
+    public void setCityinfo(CityInfo cityinfo) {
+        this.cityinfo = cityinfo;
+    }
 
     @Override
     public String toString() {
-        return "Id: " + id + "\n";
+        return "Address{" + "id=" + id + ", street=" + street + ", additionalInfo=" + additionalInfo + ", InfoEntity=" + InfoEntity + ", cityinfo=" + cityinfo + '}';
     }
+
     
 }

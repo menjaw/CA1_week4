@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -10,12 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 
-/**
- *
- * @author Menja
- */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class InfoEntity implements Serializable {
 
     //Variables
@@ -25,6 +20,9 @@ public class InfoEntity implements Serializable {
     private Integer id;
     private String email;
 
+    @ManyToOne
+    private Address address;
+    
     //Constructors
     public InfoEntity() {
     }
@@ -37,13 +35,25 @@ public class InfoEntity implements Serializable {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
-        return "entity.InfoEntity[ id=" + id + " ]";
+        return "InfoEntity{" + "id=" + id + ", email=" + email + ", address=" + address + '}';
     }
 
 }
