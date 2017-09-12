@@ -1,7 +1,7 @@
 package jpacontrol;
 
+import entity.Address;
 import entity.Company;
-import entity.InfoEntity;
 import entity.Person;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,20 +15,20 @@ public class Populate {
         
         em.getTransaction().begin();
         
-        Person p = new Person();
-        p.setFirstName("John");
-        p.setLastName("Olesen");
+        Address address1 = new Address();
+        address1.setStreet("Street 1");
+
+        Person p1 = new Person();
+        p1.setFirstName("John");
+        p1.setLastName("Olesen");
+        p1.setAddress(address1);
+        p1.setEmail("email@dk.dk");
+        em.persist(p1);
         
-        InfoEntity i = new InfoEntity();
-//        i.setEmail("jo@dk.dk");
-//        i.setFirstName("John");
-//        i.setLastName("Olsen");
-//        
         Company c = new Company();
         c.setName("Falck");
         c.setCvr("23423523");
         
-        em.persist(i);
         em.persist(c);
         
         em.getTransaction().commit();

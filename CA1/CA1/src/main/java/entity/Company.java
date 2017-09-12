@@ -14,7 +14,6 @@ public class Company extends InfoEntity implements Serializable{
     private int numEmployees;
     private double marketValue;
 
-    
     //Constructors
     public Company() {
     }

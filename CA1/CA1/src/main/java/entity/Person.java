@@ -24,7 +24,6 @@ public class Person extends InfoEntity implements Serializable {
         this.lastName = lastName;
     }
     
-    
     //Getters and setters
     public String getFirstName() {
         return firstName;
@@ -48,6 +47,10 @@ public class Person extends InfoEntity implements Serializable {
 
     public void setHobbies(List<Hobby> hobbies) {
         this.hobbies = hobbies;
+    }
+    
+    public void addHobbies(Hobby hobby){
+        this.hobbies.add(hobby);
     }
 
     @Override

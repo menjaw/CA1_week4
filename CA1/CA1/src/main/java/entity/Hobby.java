@@ -59,6 +59,10 @@ public class Hobby implements Serializable {
     public void setPersons(List<Person> persons) {
         this.persons = persons;
     }
+    
+    public void addPerson(Person person){
+        this.persons.add(person);
+    }
 
     @Override
     public String toString() {

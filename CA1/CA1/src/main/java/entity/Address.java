@@ -4,8 +4,6 @@ package entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -16,13 +14,11 @@ public class Address implements Serializable {
     //Variables
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private String street;
     private String additionalInfo;
     
     @OneToMany(mappedBy = "address")
-    private List<InfoEntity> InfoEntity;
+    private List<InfoEntity> InfoEntities;
     
     @ManyToOne
     private CityInfo cityinfo;
@@ -31,16 +27,14 @@ public class Address implements Serializable {
 
     public Address() {
     }
-    
-    
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Address(String street, String additionalInfo, List<InfoEntity> InfoEntities, CityInfo cityinfo) {
+        this.street = street;
+        this.additionalInfo = additionalInfo;
+        this.InfoEntities = InfoEntities;
+        this.cityinfo = cityinfo;
     }
-
+    
     public String getStreet() {
         return street;
     }
@@ -57,12 +51,16 @@ public class Address implements Serializable {
         this.additionalInfo = additionalInfo;
     }
 
-    public List<InfoEntity> getInfoEntity() {
-        return InfoEntity;
+    public List<InfoEntity> getInfoEntities() {
+        return InfoEntities;
     }
 
-    public void setInfoEntity(List<InfoEntity> InfoEntity) {
-        this.InfoEntity = InfoEntity;
+    public void setInfoEntities(List<InfoEntity> InfoEntities) {
+        this.InfoEntities = InfoEntities;
+    }
+
+    public void addInfoEntity(InfoEntity infoentity){
+        this.InfoEntities.add(infoentity);
     }
 
     public CityInfo getCityinfo() {
@@ -72,11 +70,9 @@ public class Address implements Serializable {
     public void setCityinfo(CityInfo cityinfo) {
         this.cityinfo = cityinfo;
     }
-
+    
     @Override
     public String toString() {
-        return "Address{" + "id=" + id + ", street=" + street + ", additionalInfo=" + additionalInfo + ", InfoEntity=" + InfoEntity + ", cityinfo=" + cityinfo + '}';
+        return "Address{" + "street=" + street + ", additionalInfo=" + additionalInfo + ", InfoEntities=" + InfoEntities + ", cityinfo=" + cityinfo + '}';
     }
-
-    
 }

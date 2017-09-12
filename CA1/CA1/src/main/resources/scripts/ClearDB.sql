@@ -1,2 +1,2 @@
-drop database CA1_demo;
-create database CA1_demo;
+drop database CA1;
+create database CA1;
