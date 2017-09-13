@@ -126,7 +126,7 @@ public class FacadePerson implements IPersonFacade {
     }
 
     @Override
-    public void addPerson(Person person) {
+    public Person addPerson(Person person) {
         EntityManager em = emf.createEntityManager();
 
         try {
@@ -137,6 +137,7 @@ public class FacadePerson implements IPersonFacade {
         finally {
             em.close();
         }
+        return person;
     }
 
     @Override
