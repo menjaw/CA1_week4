@@ -58,6 +58,8 @@ public class PersonResource {
     public PersonResource() {
 
         //personFacade.addEntityManagerFactory(Persistence.createEntityManagerFactory("PU"));
+<<<<<<< HEAD
+=======
     }
 
     /**
@@ -78,6 +80,48 @@ public class PersonResource {
      * Retrieves representation of an instance of eu.websen.ca1.PersonResource
      *
      * @param id
+     * @return a Json object with the given id
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/complete/id")
+    public String getPerson(int id) {
+        Person person = personFacade.getPersonById(id);
+        return gson.toJson(person);
+>>>>>>> 3af245607841a2c4b8faae82ea4d568c0d896b53
+    }
+
+    /**
+     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
+     *
+<<<<<<< HEAD
+     * @return a list with every objects in Json format
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/complete")
+    public String getPersons() {
+        //return "Det virker hvis du kan se dette";
+        //List<Person> persons = personFacade.getPersons();
+=======
+     * @return all persons with only contactinfo
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/contactinfo")
+    public String getPersonByPhone() {
+        // List<Person> personList = personFacade.getPersons();
+        //return gson.toJson(new HashMap(personList));
+
+>>>>>>> 3af245607841a2c4b8faae82ea4d568c0d896b53
+        return gson.toJson(new HashMap(persons));
+    }
+
+    /**
+     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
+     *
+     * @param id
+<<<<<<< HEAD
      * @return a Json object with the given id
      */
     @GET
@@ -107,6 +151,8 @@ public class PersonResource {
      * Retrieves representation of an instance of eu.websen.ca1.PersonResource
      *
      * @param id
+=======
+>>>>>>> 3af245607841a2c4b8faae82ea4d568c0d896b53
      * @return a Json object with the given id only with contactinfo
      */
     @GET

@@ -73,5 +73,39 @@ public class FacadeCompany implements ICompanyFacade {
             em.close();
         }
     }
+
+    @Override
+    public void addCompany(Company company) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            em.persist(company);
+            em.getTransaction().commit();
+        }
+        finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public Company editCompany(Company company) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            Company c = em.find(Company.class, company.getId());
+            if(c != null) {
+                c = company;
+                em.merge(c);
+                em.getTransaction().commit();
+                return c;
+            }
+        }
+        finally {
+            em.close();
+        }  
+        return null;
+    }
     
 }
