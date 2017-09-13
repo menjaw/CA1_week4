@@ -5,8 +5,6 @@
  */
 package facade;
 
-import entity.Company;
-import entity.Hobby;
 import entity.Person;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
@@ -24,6 +22,8 @@ public interface IPersonFacade {
     public List<Person> getPersons(int zipCode);
     public List<Person> getPersons(String hobbyName);
     public int getNumPerson(String hobbyName);
+    public void addPerson(Person person);
+    public Person editPerson(Person person);
     
 
 }

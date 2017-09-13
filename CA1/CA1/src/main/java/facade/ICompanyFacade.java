@@ -19,5 +19,7 @@ public interface ICompanyFacade {
     public Company getCompanyByCvr(String cvr);
     public Company getCompanyByPhone(String phone);
     public List<Company> getNumEmployees(int numEmployees);
+    public void addCompany(Company company);
+    public Company editCompany(Company company);
     
 }
