@@ -1,26 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
-/**
- *
- * @author Menja
- */
 @Entity
 public class Person extends InfoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private String firstName;
     private String lastName;
+    
+    @ManyToMany
+    private List<Hobby> hobbies;
     
     //Constructors
     public Person() {
@@ -30,7 +23,6 @@ public class Person extends InfoEntity implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    
     
     //Getters and setters
     public String getFirstName() {
@@ -49,11 +41,21 @@ public class Person extends InfoEntity implements Serializable {
         this.lastName = lastName;
     }
 
+    public List<Hobby> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(List<Hobby> hobbies) {
+        this.hobbies = hobbies;
+    }
     
+    public void addHobbies(Hobby hobby){
+        this.hobbies.add(hobby);
+    }
 
     @Override
     public String toString() {
-        return "Firstname: " +  firstName;
+        return "Person{" + "firstName=" + firstName + ", lastName=" + lastName + ", hobbies=" + hobbies + '}';
     }
-    
+
 }
