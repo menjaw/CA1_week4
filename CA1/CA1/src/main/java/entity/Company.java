@@ -2,9 +2,6 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class Company extends InfoEntity implements Serializable{
@@ -18,7 +15,6 @@ public class Company extends InfoEntity implements Serializable{
     private int numEmployees;
     private double marketValue;
 
-    
     //Constructors
     public Company() {
     }
@@ -74,23 +70,10 @@ public class Company extends InfoEntity implements Serializable{
         this.marketValue = marketValue;
     }
 
-    public String getPhone()
-    {
-        return phone;
-    }
-
-    public void setPhone(String phone)
-    {
-        this.phone = phone;
-    }
-    
-    
-  
-
 
     @Override
     public String toString() {
-        return "Name: " + name + "\n" + "";
+        return "Company{" + "name=" + name + ", description=" + description + ", cvr=" + cvr + ", numEmployees=" + numEmployees + ", marketValue=" + marketValue + '}';
     }
     
 }

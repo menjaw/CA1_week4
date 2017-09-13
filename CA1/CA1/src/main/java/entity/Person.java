@@ -1,10 +1,10 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Person extends InfoEntity implements Serializable {
@@ -12,18 +12,18 @@ public class Person extends InfoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private String firstName;
     private String lastName;
-    private int id;
+    
+    @ManyToMany
+    private List<Hobby> hobbies;
     
     //Constructors
     public Person() {
     }
 
-    public Person(String firstName, String lastName, int id) {
+    public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.id = id;
     }
-    
     
     //Getters and setters
     public String getFirstName() {
@@ -42,9 +42,21 @@ public class Person extends InfoEntity implements Serializable {
         this.lastName = lastName;
     }
 
-    @Override
-    public String toString() {
-        return "Firstname: " +  firstName;
+    public List<Hobby> getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(List<Hobby> hobbies) {
+        this.hobbies = hobbies;
     }
     
+    public void addHobbies(Hobby hobby){
+        this.hobbies.add(hobby);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" + "firstName=" + firstName + ", lastName=" + lastName + ", hobbies=" + hobbies + '}';
+    }
+
 }
