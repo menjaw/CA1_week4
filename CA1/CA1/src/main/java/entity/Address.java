@@ -1,50 +1,78 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-/**
- *
- * @author Menja
- */
+
 @Entity
 public class Address implements Serializable {
     //Variables
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private String street;
     private String additionalInfo;
+    
+    @OneToMany(mappedBy = "address")
+    private List<InfoEntity> InfoEntities;
+    
+    @ManyToOne
+    private CityInfo cityinfo;
     
     //Constructors
 
     public Address() {
     }
+
+    public Address(String street, String additionalInfo, List<InfoEntity> InfoEntities, CityInfo cityinfo) {
+        this.street = street;
+        this.additionalInfo = additionalInfo;
+        this.InfoEntities = InfoEntities;
+        this.cityinfo = cityinfo;
+    }
     
-    
-    public Integer getId() {
-        return id;
+    public String getStreet() {
+        return street;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
+    }
+
+    public List<InfoEntity> getInfoEntities() {
+        return InfoEntities;
+    }
+
+    public void setInfoEntities(List<InfoEntity> InfoEntities) {
+        this.InfoEntities = InfoEntities;
+    }
+
+    public void addInfoEntity(InfoEntity infoentity){
+        this.InfoEntities.add(infoentity);
+    }
+
+    public CityInfo getCityinfo() {
+        return cityinfo;
+    }
+
+    public void setCityinfo(CityInfo cityinfo) {
+        this.cityinfo = cityinfo;
+    }
     
-
-
     @Override
     public String toString() {
-        return "Id: " + id + "\n";
+        return "Address{" + "street=" + street + ", additionalInfo=" + additionalInfo + ", InfoEntities=" + InfoEntities + ", cityinfo=" + cityinfo + '}';
     }
-    
 }
