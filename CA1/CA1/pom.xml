@@ -17,11 +17,6 @@
     <dependencies>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <version>2.5.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
             <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
             <version>2.5.2</version>
             <scope>provided</scope>
@@ -39,6 +34,11 @@
             <type>zip</type>
         </dependency>
         <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.5.2</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -48,17 +48,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.43</version>
-        </dependency>
-         <dependency>
-            <groupId>org.glassfish.jersey.bundles</groupId>
-            <artifactId>jax-rs-ri</artifactId>
-            <version>2.0-m13-3</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.1</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
