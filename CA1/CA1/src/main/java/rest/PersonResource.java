@@ -56,10 +56,7 @@ public class PersonResource {
      * Creates an EntityManagerFactory
      */
     public PersonResource() {
-
         //personFacade.addEntityManagerFactory(Persistence.createEntityManagerFactory("PU"));
-<<<<<<< HEAD
-=======
     }
 
     /**
@@ -88,24 +85,8 @@ public class PersonResource {
     public String getPerson(int id) {
         Person person = personFacade.getPersonById(id);
         return gson.toJson(person);
->>>>>>> 3af245607841a2c4b8faae82ea4d568c0d896b53
     }
-
-    /**
-     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
-     *
-<<<<<<< HEAD
-     * @return a list with every objects in Json format
-     */
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/complete")
-    public String getPersons() {
-        //return "Det virker hvis du kan se dette";
-        //List<Person> persons = personFacade.getPersons();
-=======
-     * @return all persons with only contactinfo
-     */
+     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/contactinfo")
@@ -113,57 +94,9 @@ public class PersonResource {
         // List<Person> personList = personFacade.getPersons();
         //return gson.toJson(new HashMap(personList));
 
->>>>>>> 3af245607841a2c4b8faae82ea4d568c0d896b53
         return gson.toJson(new HashMap(persons));
     }
 
-    /**
-     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
-     *
-     * @param id
-<<<<<<< HEAD
-     * @return a Json object with the given id
-     */
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/complete/id")
-    public String getPerson(int id) {
-        Person person = personFacade.getPersonById(id);
-        return gson.toJson(person);
-    }
-
-    /**
-     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
-     *
-     * @return all persons with only contactinfo
-     */
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/contactinfo")
-    public String getPersonByPhone() {
-        // List<Person> personList = personFacade.getPersons();
-        //return gson.toJson(new HashMap(personList));
-        
-        return gson.toJson(new HashMap(persons));
-    }
-
-    /**
-     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
-     *
-     * @param id
-=======
->>>>>>> 3af245607841a2c4b8faae82ea4d568c0d896b53
-     * @return a Json object with the given id only with contactinfo
-     */
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/contactinfo/id")
-    public String getPersonByContactinfo(String id) {
-        Person person = personFacade.getPersonByPhone(id);
-        return gson.toJson(person);
-    }
-
-    
     /**
      * PUT method for updating or creating an instance of PersonResource
      *
@@ -172,7 +105,7 @@ public class PersonResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void updatePerson(String content) {
-     
+
     }
 
     @POST
