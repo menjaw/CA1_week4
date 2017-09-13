@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -11,10 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author Menja
- */
 @Entity
 public class Company extends InfoEntity implements Serializable{
 
@@ -23,6 +14,7 @@ public class Company extends InfoEntity implements Serializable{
     private String name;
     private String description;
     private String cvr;
+    private String phone;
     private int numEmployees;
     private double marketValue;
 
@@ -31,12 +23,13 @@ public class Company extends InfoEntity implements Serializable{
     public Company() {
     }
 
-    public Company(String name, String description, String cvr, int numEmployees, double marketValue) {
+    public Company(String name, String description, String cvr, int numEmployees, double marketValue, String phone) {
         this.name = name;
         this.description = description;
         this.cvr = cvr;
         this.numEmployees = numEmployees;
         this.marketValue = marketValue;
+        this.phone = phone;
     }
     
     
@@ -79,6 +72,16 @@ public class Company extends InfoEntity implements Serializable{
 
     public void setMarketValue(double marketValue) {
         this.marketValue = marketValue;
+    }
+
+    public String getPhone()
+    {
+        return phone;
+    }
+
+    public void setPhone(String phone)
+    {
+        this.phone = phone;
     }
     
     
