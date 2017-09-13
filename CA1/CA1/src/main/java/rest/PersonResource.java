@@ -5,16 +5,11 @@
  */
 package rest;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import entity.Person;
 import facade.FacadePerson;
 import facade.IPersonFacade;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.persistence.Persistence;
-import static javax.ws.rs.HttpMethod.POST;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -54,19 +49,6 @@ public class PersonResource {
     /**
      * Retrieves representation of an instance of eu.websen.ca1.PersonResource
      *
-     * @return a list with every objects in Json format
-     */
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/complete")
-    public String getPersons() {
-        List<Person> persons = personFacade.getPersons();
-        return jsonConverter.getJSONFromPersons(persons);
-    }
-
-    /**
-     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
-     *
      * @param id
      * @return a Json object with the given id
      */
@@ -78,16 +60,34 @@ public class PersonResource {
         return jsonConverter.getJSONFromPerson(person);
     }
 
-//    VIRKER IKKE
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Path("/contactinfo")
-//    public String getPersonByPhone() {
-//        // List<Person> personList = personFacade.getPersons();
-//        //return gson.toJson(new HashMap(personList));
-//
-//        return gson.toJson(new HashMap(persons));
-//    }
+    /**
+     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
+     *
+     * @return a list with every objects in Json format
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/complete")
+    public String getPersons() {
+        List<Person> persons = personFacade.getPersons();
+        return jsonConverter.getJSONFromPersons(persons);
+    }
+
+    /**
+     * POST method for creating an instance of PersonResource
+     *
+     * @param content representation for the resource
+     * @return
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String addPerson(String content) {
+        Person personToAdd = jsonConverter.getPersonFromJson(content);//convert Person object from JSON to Java
+        Person personAdded = personFacade.addPerson(personToAdd);
+        return jsonConverter.getJSONFromPerson(personAdded);
+    }
+
     /**
      * PUT method for updating or creating an instance of PersonResource
      *
@@ -104,21 +104,12 @@ public class PersonResource {
         return jsonConverter.getJSONFromPerson(personUpdated);
     }
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public String addPerson(String content) {
-//        JsonObject jOb = gson.fromJson(content, JsonObject.class);
-//        Person person = new Person();       
-//        person.setFirstName(jOb.get("firsname").getAsString());
-//        person.setLastName(jOb.get("lastname").getAsString());
-//        Mangler en add metode i facaden til at putte brugeren i DB
-
-        Person personToAdd = jsonConverter.getPersonFromJson(content);//convert Person object from JSON to Java
-        Person personAdded = personFacade.addPerson(personToAdd);
-        return jsonConverter.getJSONFromPerson(personAdded);
-    }
-
+    /**
+     * DELETE method to deleting an instance of PersonResource
+     *
+     * @param id
+     * @return
+     */
     @DELETE
     @Path("/delete/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
