@@ -37,6 +37,7 @@ public class PersonResource {
     private final IPersonFacade personFacade = new FacadePerson();
     private final JsonConverter jsonConverter = new JsonConverter();
     private JsonObject jOPersons;
+    private JsonObject jOPerson;
     private JsonArray jOPersonsArray;
 
     @Context
@@ -103,6 +104,21 @@ public class PersonResource {
          jOPersons.add("persons", jOPersonsArray);
          return jOPersons.toString();
          
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/contactinfo/{id}")
+    public String getPersonInfo(int id) {
+        Person person = personFacade.getPersonById(id);
+        jOPerson = new JsonObject();
+        
+        jOPerson.addProperty("firstName", person.getFirstName());
+        jOPerson.addProperty("lastName", person.getLastName());
+        jOPerson.addProperty("Phone", person.getPhones().toString());
+        jOPerson.addProperty("email", person.getEmail());
+        
+        return jOPerson.toString();
     }
 
     /**
