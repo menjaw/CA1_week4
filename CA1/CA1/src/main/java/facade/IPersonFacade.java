@@ -22,7 +22,7 @@ public interface IPersonFacade {
     public List<Person> getPersons(int zipCode);
     public List<Person> getPersons(String hobbyName);
     public int getNumPerson(String hobbyName);
-    public void addPerson(Person person);
+    public Person addPerson(Person person);
     public Person editPerson(Person person);
     
 
