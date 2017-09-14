@@ -11,6 +11,7 @@ public class Company extends InfoEntity implements Serializable{
     private String name;
     private String description;
     private String cvr;
+    private String phone;
     private int numEmployees;
     private double marketValue;
 
@@ -18,12 +19,13 @@ public class Company extends InfoEntity implements Serializable{
     public Company() {
     }
 
-    public Company(String name, String description, String cvr, int numEmployees, double marketValue) {
+    public Company(String name, String description, String cvr, int numEmployees, double marketValue, String phone) {
         this.name = name;
         this.description = description;
         this.cvr = cvr;
         this.numEmployees = numEmployees;
         this.marketValue = marketValue;
+        this.phone = phone;
     }
     
     //Getters and setters
