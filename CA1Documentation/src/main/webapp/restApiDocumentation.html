@@ -70,12 +70,19 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Data Parameters</td>
+                            <td>Annotations</td>
                             <td>
                                 <ul>
                                     <li>@Path("/complete/{id}")</li>
                                     <li>@PathParam("id")</li>
-                                    <li></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Data Parameters</td>
+                            <td>
+                                <ul>
+                                    <li>@PathParam("id")</li>
                                 </ul>
                             </td>
                         </tr>
@@ -86,7 +93,7 @@
                                     <li>What should the status code be on success and is there any returned data? This is useful when people need to to know what their callbacks should expect! </li>
                                     <li>
                                         <p>Code: 200 </p>
-                                        <p>Return the new person with the given object</p>
+                                        <p>Return the person with the given id</p>
                                     </li>
                                 </ul>
                             </td>
@@ -105,17 +112,37 @@
                             <td>Sample calls</td>
                             <td>
                                 <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
+                                    <li>
+                                        <p>Call the getPersonById-method from Javascript</p>
+                                    </li>
+                                    <li>
+                                        <p>Call the getPersonById-method in Facade-class</p>
+                                        <img src="Images/getPersonByIdFacade.PNG" alt=""/>                                        
+                                    </li>
+                                    <li>
+                                        <p>Call the getPersonById-method in the PersonResource-class (REST-API)</p>
+                                        <img src="Images/getPersonByIdRest-Api.PNG" alt=""/>
+                                    </li>
+                                    <li>
+                                        <p>Test the method in Postman</p>
+                                        <img src="Images/GetPersonByIdPostman.PNG" alt=""/>
+                                    </li>
                                 </ul>
                             </td>
                         </tr>
                         <tr>
-                            <td>Notes</td>
+                            <td>Notes to the REST-API</td>
                             <td>
                                 <ul>
+                                    <li>
+                                        <h4>All URL's for the REST-API</h4>
+                                        <p>http://localhost:8084/CA1/api/person/complete</p>
+                                        <p>http://localhost:8084/CA1/api/person/complete/id</p>
+                                        <p>http://localhost:8084/CA1/api/person/contactinfo</p>
+                                        <p>http://localhost:8084/CA1/api/person/add</p>
+                                        <p>http://localhost:8084/CA1/api/person/update</p>
+                                        <p>http://localhost:8084/CA1/api/person/delete/id</p>
+                                    </li>
                                     <li>
                                         <h4>JSON Converter</h4>
                                         <p><img src="Images/JsonConverter.PNG" alt=""/></p>
