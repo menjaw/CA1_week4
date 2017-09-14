@@ -18,12 +18,12 @@ public class JsonConverter {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-    public Person getPersonFromJson(String js) {
-        return GSON.fromJson(js, Person.class);
+    public Person getPersonFromJson(String javascript) {
+        return GSON.fromJson(javascript, Person.class);
     }
 
-    public String getJSONFromPerson(Person p) {
-        return GSON.toJson(p);
+    public String getJSONFromPerson(Person person) {
+        return GSON.toJson(person);
     }
 
     public String getJSONFromPersons(List<Person> persons) {

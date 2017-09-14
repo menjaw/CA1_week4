@@ -62,6 +62,7 @@ public class PersonResource {
 
     /**
      * Retrieves representation of an instance of eu.websen.ca1.PersonResource
+     * Gets all persons from facade and converts them from gson to Json
      *
      * @return a list with every objects in Json format
      */
