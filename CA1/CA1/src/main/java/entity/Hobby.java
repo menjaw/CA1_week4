@@ -21,7 +21,7 @@ public class Hobby implements Serializable {
 
     @ManyToMany(mappedBy = "hobbies")
     private List<Person> persons;
-    
+
     //Constrctors
     public Hobby() {
     }
@@ -30,7 +30,7 @@ public class Hobby implements Serializable {
         this.name = name;
         this.description = description;
     }
-    
+
     //Getters and setters
     public Integer getId() {
         return id;
@@ -59,14 +59,17 @@ public class Hobby implements Serializable {
     public void setPersons(List<Person> persons) {
         this.persons = persons;
     }
-    
-    public void addPerson(Person person){
+
+    public void addPerson(Person person) {
         this.persons.add(person);
     }
 
     @Override
     public String toString() {
-        return "Hobby{" + "id=" + id + ", name=" + name + ", description=" + description + ", persons=" + persons + '}';
+        return "Hobby id: " + id + "\n"
+                + "Name: " + name + "\n"
+                + "Description: " + description + "\n"
+                + "Persons: " + persons + "\n";
     }
 
 }

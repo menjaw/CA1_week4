@@ -17,10 +17,10 @@ public class Phone implements Serializable {
     private Integer id;
     private String number;
     private String description;
-    
+
     @ManyToOne
     private InfoEntity infoentity;
-    
+
     //Constructors
     public Phone() {
     }
@@ -60,7 +60,10 @@ public class Phone implements Serializable {
 
     @Override
     public String toString() {
-        return "Phone{" + "id=" + id + ", number=" + number + ", description=" + description + ", infoentity=" + infoentity + '}';
+        return "Phone id: " + id + "\n"
+                + "Number: " + number + "\n"
+                + "Description: " + description + "\n"
+                + "Infoentity: " + infoentity + "\n";
     }
-    
+
 }
