@@ -34,11 +34,13 @@
 
 
 
-                <h2>Inheritance Strategy</h2>
+                <h2>Inheritance Strategy: Joined Table </h2>
                 <ul> 
-                    <li><p><b> </b></p></li>
-                    <li><p><b> </b></p></li>
-                    <li><p><b> </b></p></li>
+                    <li><p><b>Joined inheritance is the most logical inheritance solution because it mirrors the object model in the data model. </b></p></li>
+                    <li><p><b>In joined inheritance a table is defined for each class in the inheritance hierarchy to store only the local attributes of that class. </b></p></li>
+                    <li><p><b>The main disadvantage to the joined model is that to query any class join queries are required. </b></p></li>
+                    <li><p><b>Querying the root or branch classes is even more difficult as either multiple queries are required, or outer joins or unions are required. </b></p></li>
+                    <li><p><b>we choose table per class at first, but when we discovered that we had to make a many to many relationship, we decided that we would use the join strategy instead because table per class is not a good strategy for polymorphic queries.  </b></p></li>
                 </ul>
                 
                 <h3>Domain model</h3>
