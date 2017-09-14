@@ -5,6 +5,9 @@
  */
 package rest;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import entity.Person;
 import facade.FacadePerson;
 import facade.IPersonFacade;
@@ -33,6 +36,8 @@ public class PersonResource {
     //Variables to facade and gson library
     private final IPersonFacade personFacade = new FacadePerson();
     private final JsonConverter jsonConverter = new JsonConverter();
+    private JsonObject jOPersons;
+    private JsonArray jOPersonsArray;
 
     @Context
     private UriInfo context;
@@ -72,6 +77,32 @@ public class PersonResource {
     public String getPersons() {
         List<Person> persons = personFacade.getPersons();
         return jsonConverter.getJSONFromPersons(persons);
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/contactinfo")
+    public String getPersonsInfo() {
+         List<Person> personList = personFacade.getPersons();
+         jOPersons = new JsonObject();
+         jOPersonsArray = new JsonArray();
+         
+         
+         
+         for (int i = 0; i < personList.size(); i++) {
+            JsonObject jOPerson = new JsonObject();
+            
+            jOPerson.addProperty("firstName", personList.get(i).getFirstName());
+            jOPerson.addProperty("lastName", personList.get(i).getLastName());
+            jOPerson.addProperty("Phone", personList.get(i).getPhones().toString());
+            jOPerson.addProperty("email", personList.get(i).getEmail());
+            
+            jOPersonsArray.add(jOPerson);
+            
+        }
+         jOPersons.add("persons", jOPersonsArray);
+         return jOPersons.toString();
+         
     }
 
     /**
