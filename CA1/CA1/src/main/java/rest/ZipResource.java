@@ -5,6 +5,11 @@
  */
 package rest;
 
+import entity.CityInfo;
+import facade.FacadeZip;
+import facade.IZipFacade;
+import java.util.List;
+import javax.persistence.Persistence;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -19,9 +24,13 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Menja
  */
-@Path("Zip")
+@Path("zip")
 public class ZipResource {
 
+    //variables to facade and converter
+    IZipFacade zipFacade = new FacadeZip();
+    JsonConverter jsonConverter = new JsonConverter();
+    
     @Context
     private UriInfo context;
 
@@ -29,21 +38,28 @@ public class ZipResource {
      * Creates a new instance of ZipResource
      */
     public ZipResource() {
+        //Create a EntityManagerFactory from the facade
+        zipFacade.addEntityManagerFactory(Persistence.createEntityManagerFactory("PU"));
     }
 
     /**
      * Retrieves representation of an instance of rest.ZipResource
+     *
      * @return an instance of java.lang.String
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    @Path("/all")
+    public String getAllZip() {
+        //First we call the getAllZips-method from the facade and store it in a List-variable
+        List<CityInfo> zips = zipFacade.getAllZips();
+        //Then we convert the list and convert the data to Json with the JsonConverter
+        return jsonConverter.getJSONFromCityInfos(zips);
     }
 
     /**
      * PUT method for updating or creating an instance of ZipResource
+     *
      * @param content representation for the resource
      */
     @PUT
