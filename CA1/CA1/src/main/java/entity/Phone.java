@@ -2,8 +2,6 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -13,14 +11,12 @@ public class Phone implements Serializable {
     //Variables
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
     private String number;
     private String description;
     
     @ManyToOne
-    private InfoEntity infoentity;
-    
+    private InfoEntity infoEntity;
+   
     //Constructors
     public Phone() {
     }
@@ -28,10 +24,6 @@ public class Phone implements Serializable {
     public Phone(String number, String description) {
         this.number = number;
         this.description = description;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getNumber() {
@@ -50,17 +42,16 @@ public class Phone implements Serializable {
         this.description = description;
     }
 
-    public InfoEntity getInfoentity() {
-        return infoentity;
+    public InfoEntity getInfoEntity() {
+        return infoEntity;
     }
 
-    public void setInfoentity(InfoEntity infoentity) {
-        this.infoentity = infoentity;
+    public void setInfoEntity(InfoEntity infoEntity) {
+        this.infoEntity = infoEntity;
     }
 
     @Override
     public String toString() {
-        return "Phone{" + "id=" + id + ", number=" + number + ", description=" + description + ", infoentity=" + infoentity + '}';
+        return "Phone{" + "number=" + number + ", description=" + description + ", infoEntity=" + infoEntity + '}';
     }
-    
 }
