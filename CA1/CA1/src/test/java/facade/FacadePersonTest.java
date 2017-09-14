@@ -35,37 +35,37 @@ public class FacadePersonTest
     {
     }
 
-    @Test
-    public void testGetPersonById()
-    {
-        // init
-        System.out.println("getPersonById");
-        int id = 1;
-        FacadePerson instance = new FacadePerson();
-        Person expResult = new Person("Dogan", "Yildirim", 1);
-        
-        // execute
-        Person result = instance.getPersonById(id);
-        
-        // verify
-        assertEquals(expResult.getId(), result.getId());
-    }
-
-    @Test
-    public void testGetPersonByPhone()
-    {
-        // init
-        System.out.println("getPersonByPhone");
-        String phone = "00000000";
-        FacadePerson instance = new FacadePerson();
-        Person expResult = new Person("Dogan", "Yildirim", 1);
-        
-        // execute
-        Person result = instance.getPersonByPhone(phone);
-        
-        // verify
-        assertEquals(expResult.getId(), result.getId());
-    }
+//    @Test
+//    public void testGetPersonById()
+//    {
+//        // init
+//        System.out.println("getPersonById");
+//        int id = 1;
+//        FacadePerson instance = new FacadePerson();
+//        Person expResult = new Person("Dogan", "Yildirim", 1);
+//        
+//        // execute
+//        Person result = instance.getPersonById(id);
+//        
+//        // verify
+//        assertEquals(expResult.getId(), result.getId());
+//    }
+//
+//    @Test
+//    public void testGetPersonByPhone()
+//    {
+//        // init
+//        System.out.println("getPersonByPhone");
+//        String phone = "00000000";
+//        FacadePerson instance = new FacadePerson();
+//        Person expResult = new Person("Dogan", "Yildirim", 1);
+//        
+//        // execute
+//        Person result = instance.getPersonByPhone(phone);
+//        
+//        // verify
+//        assertEquals(expResult.getId(), result.getId());
+//    }
 
     @Test
     public void testGetNumPerson()
