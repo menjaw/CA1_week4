@@ -82,7 +82,7 @@ public class FacadeCompany implements ICompanyFacade {
             em.getTransaction().begin();
             em.persist(company);
             em.getTransaction().commit();
-        }
+}
         finally {
             em.close();
         }
