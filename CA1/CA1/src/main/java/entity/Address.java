@@ -9,9 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
 @Entity
 public class Address implements Serializable {
+
     //Variables
     private static final long serialVersionUID = 1L;
     @Id
@@ -19,15 +19,14 @@ public class Address implements Serializable {
     private Integer id;
     private String street;
     private String additionalInfo;
-    
+
     @OneToMany(mappedBy = "address")
     private List<InfoEntity> InfoEntities;
-    
+
     @ManyToOne
     private CityInfo cityinfo;
-    
-    //Constructors
 
+    //Constructors
     public Address() {
     }
 
@@ -36,7 +35,7 @@ public class Address implements Serializable {
         this.additionalInfo = additionalInfo;
         this.cityinfo = cityinfo;
     }
-    
+
     public String getStreet() {
         return street;
     }
@@ -61,7 +60,7 @@ public class Address implements Serializable {
         this.InfoEntities = InfoEntities;
     }
 
-    public void addInfoEntity(InfoEntity infoentity){
+    public void addInfoEntity(InfoEntity infoentity) {
         this.InfoEntities.add(infoentity);
     }
 
@@ -72,9 +71,12 @@ public class Address implements Serializable {
     public void setCityinfo(CityInfo cityinfo) {
         this.cityinfo = cityinfo;
     }
-    
+
     @Override
     public String toString() {
-        return "Address{" + "street=" + street + ", additionalInfo=" + additionalInfo + ", InfoEntities=" + InfoEntities + ", cityinfo=" + cityinfo + '}';
+        return "Street: " + street + "\n"
+                + "AdditionalInfo: " + additionalInfo + "\n"
+                + "InfoEntities: " + InfoEntities + "\n"
+                + "Cityinfo=" + cityinfo + "\n";
     }
 }

@@ -125,39 +125,54 @@ public class FacadePerson implements IPersonFacade {
         }
     }
 
-  @Override
-     public Person addPerson(Person person) {
-         EntityManager em = emf.createEntityManager();
- 
-         try {
-             em.getTransaction().begin();
-             em.persist(person);
-             em.getTransaction().commit();
-         }
-         finally {
-             em.close();
-         }
-         return new Person();
-     }
- 
-     @Override
-     public Person editPerson(Person person) {
-         EntityManager em = emf.createEntityManager();
- 
-         try {
-             em.getTransaction().begin();
-             Person p = em.find(Person.class, person.getId());
-             if(p != null) {
-                 p = person;
-                 em.merge(p);
-                 em.getTransaction().commit();
-                 return p;
-             }
-         }
-         finally {
-             em.close();
-         }  
-         return null;
-     }
-  
+    @Override
+    public Person addPerson(Person person) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            em.persist(person);
+            em.getTransaction().commit();
+        }
+        finally {
+            em.close();
+        }
+        return person;
+    }
+
+    @Override
+    public Person editPerson(Person person) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            Person p = em.find(Person.class, person.getId());
+            if(p != null) {
+                p = person;
+                em.merge(p);
+                em.getTransaction().commit();
+                return p;
+            }
+        }
+        finally {
+            em.close();
+        }  
+        return null;
+    }
+
+    @Override
+    public Person deletePerson(int id) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            Person p = em.find(Person.class, id);
+            em.remove(p);
+            em.getTransaction().commit();
+            return p;
+        }
+        finally {
+            em.close();
+        }
+    }
 }

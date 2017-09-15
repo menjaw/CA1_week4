@@ -3,6 +3,8 @@ package entity;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -12,12 +14,15 @@ public class Phone implements Serializable {
     //Variables
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String number;
     private String description;
-    
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     private InfoEntity infoEntity;
    
+
     //Constructors
     public Phone() {
     }
@@ -25,6 +30,10 @@ public class Phone implements Serializable {
     public Phone(String number, String description) {
         this.number = number;
         this.description = description;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getNumber() {
@@ -47,12 +56,17 @@ public class Phone implements Serializable {
         return infoEntity;
     }
 
-    public void setInfoEntity(InfoEntity infoEntity) {
-        this.infoEntity = infoEntity;
+    public void setInfoEntity(InfoEntity infoentity) {
+        this.infoEntity = infoentity;
     }
 
     @Override
     public String toString() {
-        return "Phone{" + "number=" + number + ", description=" + description + ", infoEntity=" + infoEntity + '}';
+
+        return "Phone id: " + id + "\n"
+                + "Number: " + number + "\n"
+                + "Description: " + description + "\n"
+                + "Infoentity: " + infoEntity + "\n";
     }
+
 }

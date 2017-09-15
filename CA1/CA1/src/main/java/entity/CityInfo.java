@@ -41,7 +41,8 @@ public class CityInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "CityInfo{" + "zipCode=" + zipCode + ", city=" + city + '}';
+        return "ZipCode: " + zipCode + "\n"
+                + "City: " + city;
     }
 
 }

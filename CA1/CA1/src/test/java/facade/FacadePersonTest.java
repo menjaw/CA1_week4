@@ -1,40 +1,41 @@
-//package facade;
-//
-//import entity.Person;
-//import org.junit.After;
-//import org.junit.AfterClass;
-//import org.junit.Before;
-//import org.junit.BeforeClass;
-//import org.junit.Test;
-//import static org.junit.Assert.*;
-//
-//public class FacadePersonTest
-//{
-//    
-//    public FacadePersonTest()
-//    {
-//    }
-//    
-//    @BeforeClass
-//    public static void setUpClass()
-//    {
-//    }
-//    
-//    @AfterClass
-//    public static void tearDownClass()
-//    {
-//    }
-//    
-//    @Before
-//    public void setUp()
-//    {
-//    }
-//    
-//    @After
-//    public void tearDown()
-//    {
-//    }
-//
+package facade;
+
+import entity.Person;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class FacadePersonTest
+{
+    
+    public FacadePersonTest()
+    {
+    }
+    
+    @BeforeClass
+    public static void setUpClass()
+    {
+    }
+    
+    @AfterClass
+    public static void tearDownClass()
+    {
+    }
+    
+    @Before
+    public void setUp()
+    {
+    }
+    
+    @After
+    public void tearDown()
+    {
+    }
+
+
 //    @Test
 //    public void testGetPersonById()
 //    {
@@ -49,6 +50,7 @@
 //        
 //        // verify
 //        assertEquals(expResult.getId(), result.getId());
+
 //    }
 //
 //    @Test
@@ -66,6 +68,8 @@
 //        // verify
 //        assertEquals(expResult.getId(), result.getId());
 //    }
+
+    }
 //
 //    @Test
 //    public void testGetNumPerson()
@@ -83,4 +87,5 @@
 //        assertEquals(expResult, result);
 //    }
 //    
+
 //}

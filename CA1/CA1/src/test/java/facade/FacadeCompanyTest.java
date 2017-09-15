@@ -1,45 +1,46 @@
-//package facade;
-//
-//import entity.Company;
-//import java.util.ArrayList;
-//import java.util.List;
-//import org.junit.After;
-//import org.junit.AfterClass;
-//import org.junit.Before;
-//import org.junit.BeforeClass;
-//import org.junit.Test;
-//import static org.junit.Assert.*;
-//
-//public class FacadeCompanyTest
-//{
-//    
-//    public FacadeCompanyTest()
-//    {
-//    }
-//    
-//    @BeforeClass
-//    public static void setUpClass()
-//    {
-//    }
-//    
-//    @AfterClass
-//    public static void tearDownClass()
-//    {
-//    }
-//    
-//    @Before
-//    public void setUp()
-//    {
-//    }
-//    
-//    @After
-//    public void tearDown()
-//    {
-//    }
-//
+package facade;
+
+import entity.Company;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class FacadeCompanyTest
+{
+    
+    public FacadeCompanyTest()
+    {
+    }
+    
+    @BeforeClass
+    public static void setUpClass()
+    {
+    }
+    
+    @AfterClass
+    public static void tearDownClass()
+    {
+    }
+    
+    @Before
+    public void setUp()
+    {
+    }
+    
+    @After
+    public void tearDown()
+    {
+    }
+
 //    @Test
 //    public void testGetCompanyByCvr()
 //    {
+
 //        //init
 //        System.out.println("getCompanyByCvr");
 //        String cvr = "25-25-25";
@@ -52,6 +53,7 @@
 //        // verify
 //        assertNotNull(result);
 //        assertEquals(expResult.getCvr(), result.getCvr());
+//
 //    }
 //
 //    @Test
@@ -69,11 +71,32 @@
 //        // verify
 //        assertNotNull(result);
 //        assertEquals(expResult.getPhone(), result.getPhone());
+    }
+
+
+//    }
+//
+//    @Test
+//    public void testGetCompanyByPhone()
+//    {
+////        // init
+////        System.out.println("getCompanyByPhone");
+////        String phone = "00000000";
+////        FacadeCompany instance = new FacadeCompany();
+////        Company expResult = new Company("test", "test", "test", 0, 0, "00000000");
+////        
+////        // execute
+////        Company result = instance.getCompanyByPhone(phone);
+////        
+////        // verify
+////        assertNotNull(result);
+////        assertEquals(expResult.getPhone(), result.getPhone());
 //    }
 //
 //    @Test
 //    public void testGetNumEmployees()
 //    {
+
 //        // init        
 //        System.out.println("getNumEmployees");
 //        FacadeCompany instance = new FacadeCompany();  
@@ -89,6 +112,8 @@
 //        
 //        // verify
 //        assertEquals(expResult.size(), result.size());
+
 //    }
 //    
+
 //}
