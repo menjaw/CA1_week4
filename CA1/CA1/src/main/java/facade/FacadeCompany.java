@@ -48,7 +48,7 @@ public class FacadeCompany implements ICompanyFacade {
 
         try {
             em.getTransaction().begin();
-            Company company = em.find(Company.class, phone);
+            Company company = (Company)em.createQuery("SELECT c FROM COMPANY c WHERE c.PHONE ="+ phone).getSingleResult();
             em.getTransaction().commit();
             return company;
         }
@@ -82,7 +82,7 @@ public class FacadeCompany implements ICompanyFacade {
             em.getTransaction().begin();
             em.persist(company);
             em.getTransaction().commit();
-        }
+}
         finally {
             em.close();
         }

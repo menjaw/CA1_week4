@@ -24,8 +24,8 @@ public class InfoEntity implements Serializable {
 
     @ManyToOne
     private Address address;
-    
-    @OneToMany(mappedBy = "infoentity")
+
+    @OneToMany(mappedBy = "infoEntity")
     private List<Phone> phones;
 
     
@@ -58,7 +58,7 @@ public class InfoEntity implements Serializable {
     public void setAddress(Address address) {
         this.address = address;
     }
-    
+
     public List<Phone> getPhones() {
         return phones;
     }
@@ -66,14 +66,16 @@ public class InfoEntity implements Serializable {
     public void setPhones(List<Phone> phones) {
         this.phones = phones;
     }
-    
+
     public void addPhone(Phone phone) {
         this.phones.add(phone);
     }
 
     @Override
     public String toString() {
-        return "InfoEntity{" + "id=" + id + ", email=" + email + ", address=" + address + '}';
+        return "InfoEntity id: " + id + "\n"
+                + "Email: " + email + "\n"
+                + "Address: " + address + "\n";
     }
 
 }

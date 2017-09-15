@@ -117,6 +117,14 @@ public class PersonResource {
         return jOPerson.toString();
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/phone")
+    public String getPersonByPhone(String content) {
+        
+        return "";
+    }
+
     /**
      * POST method for creating an instance of PersonResource
      *
@@ -126,6 +134,7 @@ public class PersonResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("/add")
     public String addPerson(String content) {
         Person personToAdd = jsonConverter.getPersonFromJson(content);//convert Person object from JSON to Java
         Person personAdded = personFacade.addPerson(personToAdd);

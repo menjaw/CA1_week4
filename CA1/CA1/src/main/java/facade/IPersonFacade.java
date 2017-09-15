@@ -25,6 +25,4 @@ public interface IPersonFacade {
     public Person addPerson(Person person);
     public Person editPerson(Person person);
     public Person deletePerson(int id);
-    
-
 }

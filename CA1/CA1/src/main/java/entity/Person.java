@@ -12,10 +12,10 @@ public class Person extends InfoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private String firstName;
     private String lastName;
-    
+
     @ManyToMany
     private List<Hobby> hobbies;
-    
+
     //Constructors
     public Person() {
     }
@@ -24,7 +24,7 @@ public class Person extends InfoEntity implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    
+
     //Getters and setters
     public String getFirstName() {
         return firstName;
@@ -49,14 +49,16 @@ public class Person extends InfoEntity implements Serializable {
     public void setHobbies(List<Hobby> hobbies) {
         this.hobbies = hobbies;
     }
-    
-    public void addHobbies(Hobby hobby){
+
+    public void addHobbies(Hobby hobby) {
         this.hobbies.add(hobby);
     }
 
     @Override
     public String toString() {
-        return "Person{" + "firstName=" + firstName + ", lastName=" + lastName + ", hobbies=" + hobbies + '}';
+        return "FirstName: " + firstName + "\n"
+                + "LastName: " + lastName + "\n"
+                + "Hobbies: " + hobbies;
     }
 
 }

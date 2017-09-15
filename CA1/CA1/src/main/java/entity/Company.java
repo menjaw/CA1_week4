@@ -4,14 +4,13 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 
 @Entity
-public class Company extends InfoEntity implements Serializable{
+public class Company extends InfoEntity implements Serializable {
 
     //Variables
     private static final long serialVersionUID = 1L;
     private String name;
     private String description;
     private String cvr;
-    private String phone;
     private int numEmployees;
     private double marketValue;
 
@@ -19,16 +18,14 @@ public class Company extends InfoEntity implements Serializable{
     public Company() {
     }
 
-    public Company(String name, String description, String cvr, int numEmployees, double marketValue, String phone) {
+    public Company(String name, String description, String cvr, int numEmployees, double marketValue) {
         this.name = name;
         this.description = description;
         this.cvr = cvr;
         this.numEmployees = numEmployees;
         this.marketValue = marketValue;
-        this.phone = phone;
     }
-    
-    
+
     //Getters and setters
     public String getName() {
         return name;
@@ -70,10 +67,13 @@ public class Company extends InfoEntity implements Serializable{
         this.marketValue = marketValue;
     }
 
-
     @Override
     public String toString() {
-        return "Company{" + "name=" + name + ", description=" + description + ", cvr=" + cvr + ", numEmployees=" + numEmployees + ", marketValue=" + marketValue + '}';
+        return "Company Name: " + name + "\n"
+                + "Description: " + description + "\n"
+                + "Cvr: " + cvr + "\n"
+                + "NumEmployees: " + numEmployees + "\n"
+                + "MarketValue: " + marketValue + "\n";
     }
-    
+
 }
