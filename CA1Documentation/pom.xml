@@ -71,6 +71,7 @@
                 </executions>
             </plugin>
         </plugins>
+        <finalName>ca1Documentation</finalName>
     </build>
 
 </project>

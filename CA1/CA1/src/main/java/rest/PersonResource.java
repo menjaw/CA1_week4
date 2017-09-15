@@ -73,7 +73,7 @@ public class PersonResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/complete")
+    @Path("complete")
     public String getPersons() {
         List<Person> persons = personFacade.getPersons();
         return jsonConverter.getJSONFromPersons(persons);
