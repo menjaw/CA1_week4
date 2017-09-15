@@ -40,6 +40,7 @@ public class FacadeCompanyTest
 //    @Test
 //    public void testGetCompanyByCvr()
 //    {
+
 //        //init
 //        System.out.println("getCompanyByCvr");
 //        String cvr = "25-25-25";
@@ -52,6 +53,27 @@ public class FacadeCompanyTest
 //        // verify
 //        assertNotNull(result);
 //        assertEquals(expResult.getCvr(), result.getCvr());
+
+    }
+
+    @Test
+    public void testGetCompanyByPhone()
+    {
+//        // init
+//        System.out.println("getCompanyByPhone");
+//        String phone = "00000000";
+//        FacadeCompany instance = new FacadeCompany();
+//        Company expResult = new Company("test", "test", "test", 0, 0, "00000000");
+//        
+//        // execute
+//        Company result = instance.getCompanyByPhone(phone);
+//        
+//        // verify
+//        assertNotNull(result);
+//        assertEquals(expResult.getPhone(), result.getPhone());
+    }
+
+
 //    }
 //
 //    @Test
@@ -74,6 +96,7 @@ public class FacadeCompanyTest
 //    @Test
 //    public void testGetNumEmployees()
 //    {
+
 //        // init        
 //        System.out.println("getNumEmployees");
 //        FacadeCompany instance = new FacadeCompany();  
@@ -89,6 +112,8 @@ public class FacadeCompanyTest
 //        
 //        // verify
 //        assertEquals(expResult.size(), result.size());
+
 //    }
 //    
+
 }

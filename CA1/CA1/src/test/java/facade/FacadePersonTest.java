@@ -35,9 +35,10 @@ public class FacadePersonTest
     {
     }
 
-    @Test
-    public void testGetPersonById()
-    {
+
+//    @Test
+//    public void testGetPersonById()
+//    {
 //        // init
 //        System.out.println("getPersonById");
 //        int id = 1;
@@ -49,11 +50,12 @@ public class FacadePersonTest
 //        
 //        // verify
 //        assertEquals(expResult.getId(), result.getId());
-    }
 
-    @Test
-    public void testGetPersonByPhone()
-    {
+//    }
+//
+//    @Test
+//    public void testGetPersonByPhone()
+//    {
 //        // init
 //        System.out.println("getPersonByPhone");
 //        String phone = "00000000";
@@ -65,6 +67,8 @@ public class FacadePersonTest
 //        
 //        // verify
 //        assertEquals(expResult.getId(), result.getId());
+//    }
+
     }
 //
 //    @Test
@@ -83,4 +87,5 @@ public class FacadePersonTest
 //        assertEquals(expResult, result);
 //    }
 //    
+
 }

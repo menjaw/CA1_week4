@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rest;
 
 import com.google.gson.Gson;
@@ -25,11 +20,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
-/**
- * REST Web Service
- *
- * @author Menja
- */
 @Path("person")
 public class PersonResource {
 
@@ -43,21 +33,10 @@ public class PersonResource {
     @Context
     private UriInfo context;
 
-    /**
-     * Creates a new instance of ApiResource.
-     *
-     * Creates an EntityManagerFactory
-     */
     public PersonResource() {
         personFacade.addEntityManagerFactory(Persistence.createEntityManagerFactory("PU"));
     }
 
-    /**
-     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
-     *
-     * @param id
-     * @return a Json object with the given id
-     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/complete/{id}")
@@ -65,13 +44,7 @@ public class PersonResource {
         Person person = personFacade.getPersonById(id);
         return jsonConverter.getJSONFromPerson(person);
     }
-
-    /**
-     * Retrieves representation of an instance of eu.websen.ca1.PersonResource
-     * Gets all persons from facade and converts them from gson to Json
-     *
-     * @return a list with every objects in Json format
-     */
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/complete")
@@ -125,12 +98,6 @@ public class PersonResource {
         return "";
     }
 
-    /**
-     * POST method for creating an instance of PersonResource
-     *
-     * @param content representation for the resource
-     * @return
-     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -141,12 +108,6 @@ public class PersonResource {
         return jsonConverter.getJSONFromPerson(personAdded);
     }
 
-    /**
-     * PUT method for updating or creating an instance of PersonResource
-     *
-     * @param content representation for the resource
-     * @return
-     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -157,12 +118,6 @@ public class PersonResource {
         return jsonConverter.getJSONFromPerson(personUpdated);
     }
 
-    /**
-     * DELETE method to deleting an instance of PersonResource
-     *
-     * @param id
-     * @return
-     */
     @DELETE
     @Path("/delete/{id}")
     @Consumes(MediaType.APPLICATION_JSON)

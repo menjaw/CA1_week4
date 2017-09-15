@@ -15,8 +15,9 @@ public class Structure {
         
         puproperties2.put("javax.persistence.sql-load-script-source", "scripts/populate.sql");
         Persistence.generateSchema("PU", puproperties2);
-        
+
         puproperties3.put("javax.persistence.sql-load-script-source", "scripts/DummyData.sql");
         Persistence.generateSchema("PU", puproperties3);
+
     }
 }

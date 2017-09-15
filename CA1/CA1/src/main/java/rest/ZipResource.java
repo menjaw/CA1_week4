@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rest;
 
 import entity.CityInfo;
@@ -19,11 +14,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 
-/**
- * REST Web Service
- *
- * @author Menja
- */
 @Path("zip")
 public class ZipResource {
 
@@ -34,19 +24,11 @@ public class ZipResource {
     @Context
     private UriInfo context;
 
-    /**
-     * Creates a new instance of ZipResource
-     */
     public ZipResource() {
         //Create a EntityManagerFactory from the facade
         zipFacade.addEntityManagerFactory(Persistence.createEntityManagerFactory("PU"));
     }
 
-    /**
-     * Retrieves representation of an instance of rest.ZipResource
-     *
-     * @return an instance of java.lang.String
-     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/all")
@@ -57,11 +39,6 @@ public class ZipResource {
         return jsonConverter.getJSONFromCityInfos(zips);
     }
 
-    /**
-     * PUT method for updating or creating an instance of ZipResource
-     *
-     * @param content representation for the resource
-     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
