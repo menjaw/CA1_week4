@@ -37,6 +37,7 @@ public class PersonResource {
     private final IPersonFacade personFacade = new FacadePerson();
     private final JsonConverter jsonConverter = new JsonConverter();
     private JsonObject jOPersons;
+    private JsonObject jOPerson;
     private JsonArray jOPersonsArray;
 
     @Context
@@ -87,8 +88,6 @@ public class PersonResource {
          jOPersons = new JsonObject();
          jOPersonsArray = new JsonArray();
          
-         
-         
          for (int i = 0; i < personList.size(); i++) {
             JsonObject jOPerson = new JsonObject();
             
@@ -98,11 +97,24 @@ public class PersonResource {
             jOPerson.addProperty("email", personList.get(i).getEmail());
             
             jOPersonsArray.add(jOPerson);
-            
         }
          jOPersons.add("persons", jOPersonsArray);
          return jOPersons.toString();
-         
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/contactinfo/{id}")
+    public String getPersonInfo(@PathParam("id") int id) {
+        Person person = personFacade.getPersonById(id);
+        jOPerson = new JsonObject();
+        
+        jOPerson.addProperty("firstName", person.getFirstName());
+        jOPerson.addProperty("lastName", person.getLastName());
+        jOPerson.addProperty("Phone", person.getPhones().toString());
+        jOPerson.addProperty("email", person.getEmail());
+        
+        return jOPerson.toString();
     }
 
     @GET
@@ -156,8 +168,7 @@ public class PersonResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String deletePerson(@PathParam("id") int id) {
-        //Person deletedPerson = personFacade.deletePerson(id);
-        //return jsonConverter.getJSONFromPerson(deletedPerson);
-        return "";
+        Person deletedPerson = personFacade.deletePerson(id);
+        return jsonConverter.getJSONFromPerson(deletedPerson);
     }
 }
