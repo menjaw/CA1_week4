@@ -1,5 +1,8 @@
 package rest;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import entity.Person;
 import facade.FacadePerson;
 import facade.IPersonFacade;
@@ -23,6 +26,9 @@ public class PersonResource {
     //Variables to facade and gson library
     private final IPersonFacade personFacade = new FacadePerson();
     private final JsonConverter jsonConverter = new JsonConverter();
+    private JsonObject jOPersons;
+    private JsonObject jOPerson;
+    private JsonArray jOPersonsArray;
 
     @Context
     private UriInfo context;
@@ -46,10 +52,56 @@ public class PersonResource {
         List<Person> persons = personFacade.getPersons();
         return jsonConverter.getJSONFromPersons(persons);
     }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/contactinfo")
+    public String getPersonsInfo() {
+         List<Person> personList = personFacade.getPersons();
+         jOPersons = new JsonObject();
+         jOPersonsArray = new JsonArray();
+         
+         for (int i = 0; i < personList.size(); i++) {
+            JsonObject jOPerson = new JsonObject();
+            
+            jOPerson.addProperty("firstName", personList.get(i).getFirstName());
+            jOPerson.addProperty("lastName", personList.get(i).getLastName());
+            jOPerson.addProperty("Phone", personList.get(i).getPhones().toString());
+            jOPerson.addProperty("email", personList.get(i).getEmail());
+            
+            jOPersonsArray.add(jOPerson);
+        }
+         jOPersons.add("persons", jOPersonsArray);
+         return jOPersons.toString();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/contactinfo/{id}")
+    public String getPersonInfo(@PathParam("id") int id) {
+        Person person = personFacade.getPersonById(id);
+        jOPerson = new JsonObject();
+        
+        jOPerson.addProperty("firstName", person.getFirstName());
+        jOPerson.addProperty("lastName", person.getLastName());
+        jOPerson.addProperty("Phone", person.getPhones().toString());
+        jOPerson.addProperty("email", person.getEmail());
+        
+        return jOPerson.toString();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/phone")
+    public String getPersonByPhone(String content) {
+        
+        return "";
+    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("/add")
     public String addPerson(String content) {
         Person personToAdd = jsonConverter.getPersonFromJson(content);//convert Person object from JSON to Java
         Person personAdded = personFacade.addPerson(personToAdd);
@@ -71,8 +123,7 @@ public class PersonResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public String deletePerson(@PathParam("id") int id) {
-        //Person deletedPerson = personFacade.deletePerson(id);
-        //return jsonConverter.getJSONFromPerson(deletedPerson);
-        return "";
+        Person deletedPerson = personFacade.deletePerson(id);
+        return jsonConverter.getJSONFromPerson(deletedPerson);
     }
 }

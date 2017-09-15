@@ -35,6 +35,7 @@ public class FacadePersonTest
     {
     }
 
+
 //    @Test
 //    public void testGetPersonById()
 //    {
@@ -49,6 +50,7 @@ public class FacadePersonTest
 //        
 //        // verify
 //        assertEquals(expResult.getId(), result.getId());
+
 //    }
 //
 //    @Test
@@ -67,9 +69,11 @@ public class FacadePersonTest
 //        assertEquals(expResult.getId(), result.getId());
 //    }
 
-    @Test
-    public void testGetNumPerson()
-    {
+    }
+//
+//    @Test
+//    public void testGetNumPerson()
+//    {
 //        // init
 //        System.out.println("getNumPerson");
 //        String hobbyName = "Soccer";
@@ -81,6 +85,7 @@ public class FacadePersonTest
 //        
 //        // verify
 //        assertEquals(expResult, result);
-    }
-    
+//    }
+//    
+
 }

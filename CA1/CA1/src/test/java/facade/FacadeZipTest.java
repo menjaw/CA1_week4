@@ -37,9 +37,10 @@ public class FacadeZipTest
     {
     }
 
-    @Test
-    public void testGetAllZips()
-    {
+
+//    @Test
+//    public void testGetAllZips()
+//    {
 //        // init
 //        System.out.println("getAllZips");
 //        FacadeZip instance = new FacadeZip();
@@ -54,6 +55,6 @@ public class FacadeZipTest
 //        
 //        // verify
 //        assertEquals(expResult.size(), result.size());
-    }
+//    }
     
 }
