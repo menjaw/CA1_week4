@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,8 +19,9 @@ public class Phone implements Serializable {
     private String number;
     private String description;
 
-    @ManyToOne
-    private InfoEntity infoentity;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private InfoEntity infoEntity;
+   
 
     //Constructors
     public Phone() {
@@ -50,12 +52,12 @@ public class Phone implements Serializable {
         this.description = description;
     }
 
-    public InfoEntity getInfoentity() {
-        return infoentity;
+    public InfoEntity getInfoEntity() {
+        return infoEntity;
     }
 
-    public void setInfoentity(InfoEntity infoentity) {
-        this.infoentity = infoentity;
+    public void setInfoEntity(InfoEntity infoentity) {
+        this.infoEntity = infoentity;
     }
 
     @Override
@@ -64,7 +66,7 @@ public class Phone implements Serializable {
         return "Phone id: " + id + "\n"
                 + "Number: " + number + "\n"
                 + "Description: " + description + "\n"
-                + "Infoentity: " + infoentity + "\n";
+                + "Infoentity: " + infoEntity + "\n";
     }
 
 }
