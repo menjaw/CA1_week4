@@ -29,8 +29,12 @@
                 <h1 class="centerText">REST API Documentation</h1>
                 <hr>
 
-                <p>Show an example</p>
                 <p>We have decided to make a REST-class to each of the facdes, so we consistently build the system with a uniform structure</p>
+                <p>The data will be converted 'from Gson to Json' and 'from Json to Gson' by calling the JsonConverter-class</p>
+                <p>The PersonResource-class contains a fully CRUD and it is possible to test all 4 operations from Postman</p>
+
+
+                <p>Shows an example for REST-API to get a person</p>
                 <table class="table table-striped col-md-8">
                     <thead>
                     <th>Proces</th>
@@ -42,9 +46,9 @@
                             <td>Title</td>
                             <td>
                                 <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
+                                    <li>GetPerson()</li>
+                                    <li>Gets a person by a specific Id</li>
+                                    <li>The call from the API take one person from the DB</li>
                                 </ul>
                             </td>
                         </tr>
@@ -52,7 +56,8 @@
                             <td>URL</td>
                             <td>
                                 <ul>
-                                    <li>Link to the REST-API should be here</li>
+                                    <li>This is the URL for local testing</li>
+                                    <li>http://localhost:8084/CA1/api/person/complete/9</li>
                                 </ul>
                             </td>
                         </tr>
@@ -60,7 +65,7 @@
                             <td>Method</td>
                             <td>
                                 <ul>
-                                    <li></li>
+                                    <li>@GET</li>
                                 </ul>
                             </td>
                         </tr>
@@ -68,8 +73,8 @@
                             <td>Data Parameters</td>
                             <td>
                                 <ul>
-                                    <li></li>
-                                    <li></li>
+                                    <li>@Path("/complete/{id}")</li>
+                                    <li>@PathParam("id")</li>
                                     <li></li>
                                 </ul>
                             </td>
@@ -81,7 +86,7 @@
                                     <li>What should the status code be on success and is there any returned data? This is useful when people need to to know what their callbacks should expect! </li>
                                     <li>
                                         <p>Code: 200 </p>
-                                        <p>Return the new created person</p>
+                                        <p>Return the new person with the given object</p>
                                     </li>
                                 </ul>
                             </td>
