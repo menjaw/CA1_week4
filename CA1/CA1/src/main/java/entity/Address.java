@@ -3,6 +3,8 @@ package entity;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -13,6 +15,8 @@ public class Address implements Serializable {
     //Variables
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String street;
     private String additionalInfo;
 
@@ -26,10 +30,9 @@ public class Address implements Serializable {
     public Address() {
     }
 
-    public Address(String street, String additionalInfo, List<InfoEntity> InfoEntities, CityInfo cityinfo) {
+    public Address(String street, String additionalInfo,CityInfo cityinfo) {
         this.street = street;
         this.additionalInfo = additionalInfo;
-        this.InfoEntities = InfoEntities;
         this.cityinfo = cityinfo;
     }
 

@@ -53,12 +53,12 @@ public class FacadeCompanyTest
 //        // verify
 //        assertNotNull(result);
 //        assertEquals(expResult.getCvr(), result.getCvr());
-
-    }
-
-    @Test
-    public void testGetCompanyByPhone()
-    {
+//
+//    }
+//
+//    @Test
+//    public void testGetCompanyByPhone()
+//    {
 //        // init
 //        System.out.println("getCompanyByPhone");
 //        String phone = "00000000";
@@ -116,4 +116,4 @@ public class FacadeCompanyTest
 //    }
 //    
 
-}
+//}
