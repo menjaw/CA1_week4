@@ -11,20 +11,10 @@
     <class>entity.Phone</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-<<<<<<< HEAD
-
- 
-
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ca1?zeroDateTimeBehavior=convertToNull"/>
-      <property name="javax.persistence.jdbc.user" value="menja"/>
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="menja"/>
-=======
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/CA1"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="1234"/>
->>>>>>> 8827d9594832af7474b8ffa6f6391cb7a6ff3cf1
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
