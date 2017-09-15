@@ -24,6 +24,7 @@ public interface IPersonFacade {
     public int getNumPerson(String hobbyName);
     public Person addPerson(Person person);
     public Person editPerson(Person person);
+    public Person deletePerson(int id);
     
 
 }

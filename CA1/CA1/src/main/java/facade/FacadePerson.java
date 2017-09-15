@@ -150,4 +150,20 @@ public class FacadePerson implements IPersonFacade {
         }  
         return null;
     }
+
+    @Override
+    public Person deletePerson(int id) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+            em.getTransaction().begin();
+            Person p = em.find(Person.class, id);
+            em.remove(p);
+            em.getTransaction().commit();
+            return p;
+        }
+        finally {
+            em.close();
+        }
+    }
 }
