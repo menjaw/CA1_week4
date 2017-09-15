@@ -46,7 +46,7 @@ document.getElementById("btn4").addEventListener("click", function () {
 
 function GetAllZipCodes()
 {
-    fetch("api/Zip", {method: "get"}).then(function (response) {
+    fetch("api/zip/all", {method: "get"}).then(function (response) {
         return response.json();
     }).then(function (data) {
         document.getElementById("display4").innerHTML = data.lastName;
@@ -56,10 +56,12 @@ function GetAllZipCodes()
 
 function showForm()
 {
-    document.getElementById("form").innerHTML = 
-            "<form>" + 
-            "First name " + "<input type='input'>" + "<br>" + 
-            "Last name  " + "<input type='input'>" +
+    document.getElementById("form").innerHTML =
+            "<form>" +
+            "First name: " + "<input type='input'>" + "<br>" +
+            "Last name:  " + "<input type='input'>" +
             "<button> Submit </button>" +
             "</form>";
-}
+    
+    
+};
