@@ -20,10 +20,12 @@ public class Person extends InfoEntity implements Serializable {
     public Person() {
     }
 
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, List<Hobby> hobbies) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.hobbies = hobbies;
     }
+
 
     //Getters and setters
     public String getFirstName() {
@@ -49,8 +51,8 @@ public class Person extends InfoEntity implements Serializable {
     public void setHobbies(List<Hobby> hobbies) {
         this.hobbies = hobbies;
     }
-
-    public void addHobbies(Hobby hobby) {
+    
+    public void addHobby(Hobby hobby){
         this.hobbies.add(hobby);
     }
 
