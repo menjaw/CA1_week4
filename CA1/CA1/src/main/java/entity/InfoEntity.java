@@ -1,7 +1,9 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +24,7 @@ public class InfoEntity implements Serializable {
     private Integer id;
     private String email;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Address address;
     
 
@@ -69,6 +71,10 @@ public class InfoEntity implements Serializable {
     }
     
     public void addPhone(Phone phone) {
+        if(this.phones == null){
+            this.phones = new ArrayList<>();
+        }
+        phone.setInfoEntity(this);
         this.phones.add(phone);
     }
 

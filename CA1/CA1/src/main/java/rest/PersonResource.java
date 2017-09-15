@@ -5,9 +5,11 @@
  */
 package rest;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import entity.Hobby;
 import entity.Person;
 import facade.FacadePerson;
 import facade.IPersonFacade;
@@ -24,6 +26,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import restexception.PersonsNotFoundException;
 
 /**
  * REST Web Service
@@ -81,8 +84,37 @@ public class PersonResource {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("all")
+    public String getPersonss() throws PersonsNotFoundException {
+        List<Person> personList = personFacade.getPersons();
+        if(!personList.isEmpty()){
+            //String personListS = new Gson().toJson(personList);
+            JsonArray ja = new JsonArray();
+            for (int i = 0; i < personList.size(); i++) {
+                JsonObject jo=  new JsonObject();
+                jo.addProperty("firstName", personList.get(i).getFirstName());
+                jo.addProperty("lastName", personList.get(i).getLastName());
+                jo.addProperty("Email", personList.get(i).getEmail());
+                jo.addProperty("Address", personList.get(i).getAddress().getStreet());
+                JsonArray hobbies = new JsonArray();
+                System.out.println("antal hobbies: "+ personList.get(i).getHobbies().size());
+                for (Hobby h : personList.get(i).getHobbies()) {
+                   hobbies.add(h.getName());
+                }
+                ja.addAll(hobbies);
+                ja.add(jo);
+            }
+            return ja.toString();
+        }
+        else {
+            throw new PersonsNotFoundException();
+        }
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/contactinfo")
-    public String getPersonsInfo() {
+    public String getPersonsInfo() throws PersonsNotFoundException{
          List<Person> personList = personFacade.getPersons();
          jOPersons = new JsonObject();
          jOPersonsArray = new JsonArray();
@@ -101,8 +133,13 @@ public class PersonResource {
             
         }
          jOPersons.add("persons", jOPersonsArray);
-         return jOPersons.toString();
          
+         if(jOPersons != null){
+            return jOPersons.toString();
+         }
+         else{
+             throw new PersonsNotFoundException();
+         }
     }
 
     /**
@@ -149,6 +186,19 @@ public class PersonResource {
     public String deletePerson(@PathParam("id") int id) {
         //Person deletedPerson = personFacade.deletePerson(id);
         //return jsonConverter.getJSONFromPerson(deletedPerson);
+        return "";
+    }
+    
+    @GET
+    @Path("{hobby}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getPersonsByHobby(@PathParam("hobby") String hobby) {
+        List<Person> persons = personFacade.getPersons(hobby);
+        
+        if(!persons.isEmpty()){
+            
+        }
         return "";
     }
 }
