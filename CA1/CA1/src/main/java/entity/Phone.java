@@ -60,6 +60,7 @@ public class Phone implements Serializable {
 
     @Override
     public String toString() {
+
         return "Phone id: " + id + "\n"
                 + "Number: " + number + "\n"
                 + "Description: " + description + "\n"

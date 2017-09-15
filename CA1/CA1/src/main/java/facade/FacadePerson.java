@@ -1,3 +1,8 @@
+/*
+ - * To change this license header, choose License Headers in Project Properties.
+ - * To change this template file, choose Tools | Templates
+ - * and open the template in the editor.
+ - */
 package facade;
 
 import entity.Person;
@@ -5,6 +10,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
+/**
+ - *
+ - * @author Oliver
+ - */
 public class FacadePerson implements IPersonFacade {
     
     private EntityManagerFactory emf;
@@ -116,38 +125,39 @@ public class FacadePerson implements IPersonFacade {
         }
     }
 
-    @Override
-    public Person addPerson(Person person) {
-        EntityManager em = emf.createEntityManager();
-
-        try {
-            em.getTransaction().begin();
-            em.persist(person);
-            em.getTransaction().commit();
-        }
-        finally {
-            em.close();
-        }
-        return person;
-    }
-
-    @Override
-    public Person editPerson(Person person) {
-        EntityManager em = emf.createEntityManager();
-
-        try {
-            em.getTransaction().begin();
-            Person p = em.find(Person.class, person.getId());
-            if(p != null) {
-                p = person;
-                em.merge(p);
-                em.getTransaction().commit();
-                return p;
-            }
-        }
-        finally {
-            em.close();
-        }  
-        return null;
-    }
+  @Override
+     public Person addPerson(Person person) {
+         EntityManager em = emf.createEntityManager();
+ 
+         try {
+             em.getTransaction().begin();
+             em.persist(person);
+             em.getTransaction().commit();
+         }
+         finally {
+             em.close();
+         }
+         return new Person();
+     }
+ 
+     @Override
+     public Person editPerson(Person person) {
+         EntityManager em = emf.createEntityManager();
+ 
+         try {
+             em.getTransaction().begin();
+             Person p = em.find(Person.class, person.getId());
+             if(p != null) {
+                 p = person;
+                 em.merge(p);
+                 em.getTransaction().commit();
+                 return p;
+             }
+         }
+         finally {
+             em.close();
+         }  
+         return null;
+     }
+  
 }

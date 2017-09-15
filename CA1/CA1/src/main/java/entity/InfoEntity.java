@@ -25,9 +25,10 @@ public class InfoEntity implements Serializable {
     @ManyToOne
     private Address address;
 
-    @OneToMany(mappedBy = "infoentity")
+    @OneToMany(mappedBy = "infoEntity")
     private List<Phone> phones;
 
+    
     //Constructors
     public InfoEntity() {
     }
