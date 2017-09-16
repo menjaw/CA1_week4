@@ -3,55 +3,69 @@
         <title>Implementation Strategy</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="Styles/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="Styles/StyleLibrary.css" rel="stylesheet" type="text/css"/>
+        <script src="Styles/bootstrap.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="container-fluid">
-            <!--HEADER-->
-            <header>
-                <!--Navigation Bar-->
-                <ul class="nav nav-pills">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="howToUseTheSystem.html">How To Use It</a></li>
-                    <li><a href="testStrategy.html">Test Results</a></li>
-                    <li><a href="implementationStrategy.html">Implementation</a></li>
-                    <li><a href="restApiDocumentation.html">REST API documentation</a></li>
-                    <li><a href="whoDidWhat.html">Who did what</a></li>
-                    <li><a href="theDays.html">The days</a></li>
-                </ul>
-                <hr>
-            </header>
-
-            <img src="" />
+            <div class="row">
+                <!--HEADER-->
+                <header>  
+                    <!--NAVBAR-->
+                    <nav class="navbar navbar-expand">
+                        <div class="container-fluid">
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                                <li class="nav-item"><a href="howToUseTheSystem.html" class="nav-link">How To Use It</a></li>
+                                <li class="nav-item"><a href="testStrategy.html" class="nav-link">Test Results</a></li>
+                                <li class="nav-item"><a href="implementationStrategy.html" class="nav-link">Implementation</a></li>
+                                <li class="nav-item"><a href="restApiDocumentation.html" class="nav-link">REST API documentation</a></li>
+                                <li class="nav-item"><a href="whoDidWhat.html" class="nav-link">Who did what</a></li>
+                                <li class="nav-item"><a href="theDays.html" class="nav-link">The days</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+            </div>
 
 
             <!--CONTENT-->
-            <div>
+            <div class="container centerText">
+                <hr>
                 <h1 class="centerText">The Implementation Strategy</h1>
                 <hr>
 
-
-
-                <h2>Inheritance Strategy: Joined Table </h2>
-                <ul> 
-                    <li><p><b></b></p></li>
-                    <li><p><b></b></p></li>
-                    <li><p><b></b></p></li>
-                    <li><p><b></b></p></li>
-                    <li><p><b></b></p></li>
-                </ul>
-                
-                <h3>Domain model</h3>
+                <h2>Domain model</h2>
                 <p><img src="Images/PeopleCompanyDomain.PNG" alt=""/></p>
 
+                <hr>
+                <h2>Inheritance Strategy: Table per class</h2>
+                <ul class="ul-style-none"> 
+                    <li><p>Add the entity annotations to the class</p></li>
+                    <li><p>Add the mapping annotations to the attributes</p></li>
+                    <li><p>Each class get mapped to its own database table</p></li>
+                    <li><p>The mapping allows you to use polymorphic queries and define relationships to the superclass</p></li>
+                    <li><p>This strategy is simular to the 'Mapped Superclasses Strategy' but here the superclass is also an Entity-class</p></li>
+                </ul>
+
+                <h3><b>Benefits:</b></h3>
+                <ul class="ul-style-none">
+                    <li><p><b>Easy and efficient to make queries for a specific entity-class</b></p></li>
+                </ul>
+
+                <h3><b>Drawbacks:</b></h3>
+                <ul class="ul-style-none">
+                    <li><p><b>This table structure adds a lot of complexity to polymorphics queries</b></p></li>
+                </ul>
+
                 <h3>Why this Strategy</h3>
-                <p>TODO: Description of why this strategy was chosen</p>
+                <p>We thought this strategy would be easy to work with and would keep it as simple as possible</p>
+                <p>But we ran in to a lot of challanges and therefor we couldn't finish the application</p>
                 <hr>    
 
                 <h2>Automatically generated test data</h2>
-                <p></p>
+                <p>We did not reach this part</p>
                 <ol>
                     <li></li>
                     <li></li>
