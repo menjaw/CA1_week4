@@ -4,6 +4,15 @@
  * and open the template in the editor.
  */
 
+function showAppInfo() {
+    document.getElementById("appInfo").innerHTML =
+            "<p>Maven Java web-application</p>"
+            + "<p>Project Name: CA1</p>"
+            + "<p>Group id: eu.websen</p>"
+            + "<p>Version: 1.0-SNAPSHOT</p>"
+            + "<p>Server: Apache Tomcat 8.0.27.0</p>"
+            + "<p>Java EE version: Java EE 7 Web</p>";
+}
 
 function showBrowserUrls() {
     document.getElementById("browserUrls").innerHTML =
